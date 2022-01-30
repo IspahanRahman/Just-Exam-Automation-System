@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Google Auth</title>
     <style>
-          body{
+        body{
             font-family: arial;
             margin: 0;
         }
@@ -28,38 +28,34 @@
             color: #fff;
             font-size: 18px;
             background: rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            padding: 10px;
-            display: block;
         }
         main,header{
-            max-width: 960px;
-            margin: 30px aut0;
-            padding: 0 10px;
-            color: #333;
-        }
-        .google-btn{
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            padding:10px;
-            background: #ff5353;
+            max-width:960px;
+            margin:30px auto;
+            padding:0 10px;
+            color:#333
         }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/auth/login">Login</a></li>
+            <% if(user){ %>
+                <li><a href="/auth/logout">Logout</a></li>
+            <% }else {%>
+                <li><a href="/auth/login">Login</a></li>
+            <%}%>
             <li><a href="/">Homepage</a></li>
+            <li><a href="/profile">Profile</a></li>
         </ul>
     </nav>
     <header>
-       <h1>Login using...</h1>
+        <h1>Welcome to your profile, <%=user.name%></h1>
+    
     </header>
     <main>
-        <a class="google-btn" href="/auth/google">Google+</a>
+      <img src="<%= user.avatar %>">
+      <p>This is my picture</p>
     </main>
 </body>
 </html>

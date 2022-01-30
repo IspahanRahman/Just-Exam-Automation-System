@@ -25,5 +25,6 @@ db.sequelize.sync({force:false})
 })
 
 db.users=require('../model/users')(sequelize,DataTypes);
+db.courses=require('../model/course')(sequelize,DataTypes);
 
 module.exports=db;
